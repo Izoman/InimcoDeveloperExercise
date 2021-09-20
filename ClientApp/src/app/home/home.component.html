@@ -1,0 +1,59 @@
+<h1>Inimco Developer Exercise</h1>
+<p>Made by Umut Saglam {{currentYear}}</p>
+
+<form>
+  <div class="row">
+    <div class="col">
+      <label for="firstName">First name (eg. John)</label>
+      <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+    </div>
+    <div class="col">
+      <label for="lastName">Last name (eg. Doe)</label>
+      <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+    </div>
+  </div>
+
+  <div>
+    <h2>Social skills</h2>
+    <div>
+      <label for="socialSkill">Social skill (eg. fun)</label>
+      <input type="text" class="form-control" id="socialSkill" placeholder="Enter a social skill" [(ngModel)]="socialSkill" [ngModelOptions]="{standalone: true}">
+      <button type="button" (click)="addSocialSkill()" class="btn btn-secondary">Add social skill</button>
+    </div>
+
+    <p *ngIf="socialSkills.length < 1"><em>There's no social skill, add one :)</em></p>
+
+    <ul class="list-group" *ngFor="let socialSkill of socialSkills">
+      <li class="list-group-item">{{socialSkill}}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Social accounts</h2>
+
+    <div class="row">
+      <div class="col">
+        <label for="sa_type">Social account type</label>
+        <input type="text" class="form-control" id="sa_type" placeholder="Enter social account type eg. Twitter" [(ngModel)]="sa_type" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="col">
+        <label for="sa_address">Social account address</label>
+        <input type="text" class="form-control" id="sa_address" placeholder="Enter social account address eg. @JohnDoe" [(ngModel)]="sa_address" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="col">
+        <button type="button" (click)="addSocialAccount()" class="btn btn-secondary">Add social skill</button>
+      </div>
+    </div>
+
+
+
+
+    <p *ngIf="socialAccounts.length < 1"><em>There's no social account, add one :)</em></p>
+
+    <ul class="list-group" *ngFor="let socialAccount of socialAccounts">
+      <li class="list-group-item">{{socialAccount.type}}: {{socialAccount.address}}</li>
+    </ul>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
