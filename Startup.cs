@@ -49,9 +49,15 @@ namespace InimcoDeveloperExercise
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapControllerRoute(
+                //    name: "fullobject",
+                //    pattern: "fullobject/{actionName}",
+                //    defaults: new { controller = "FullObject", action = "TestMethod" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+
             });
 
             app.UseSpa(spa =>

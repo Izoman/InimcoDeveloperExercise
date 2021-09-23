@@ -1,0 +1,18 @@
+{
+  "FirstName": "⚡️Umut",
+  "LastName": "Saglam",
+  "SocialSkills": [
+    "Fun",
+    "Awesome"
+  ],
+  "SocialAccounts": [
+    {
+      "Type": "Facebook",
+      "Address": "Umut Saglam"
+    },
+    {
+      "Type": "Twitter",
+      "Address": "@JohnDoe"
+    }
+  ]
+}

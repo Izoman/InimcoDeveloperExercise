@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -75,7 +75,10 @@ export class HomeComponent {
       console.log(result);
 
       // Post/Save in JSON file using REST API
-      this.http.post(this.baseUrl + 'fullobject/SaveFullObjectToFile', result).subscribe();
+      const headers = new HttpHeaders().set('Content-Type', 'application/json');
+      this.http.post(this.baseUrl + 'fullobject', result, { headers: headers }).subscribe(data => {
+        console.log(data);
+      });
 
       // Uncomment bellow to allow page redirect to JSON object
 

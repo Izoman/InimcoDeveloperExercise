@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 
@@ -19,13 +20,12 @@ namespace InimcoDeveloperExercise.Controllers
         }
 
         [HttpPost]
-        
-        public IActionResult SaveFullObjectToFile(FullObject fullObject)
+        public IActionResult SaveFullObjectToFile([FromBody] FullObject fullObject)
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             string path = Path.Combine(contentRootPath, "fullObject.json");
-
-            System.IO.File.WriteAllText(path, fullObject.ToString());
+            string json = JsonConvert.SerializeObject(fullObject, Formatting.Indented);
+            System.IO.File.WriteAllText(path, json);
             return Ok(fullObject);
         }
 
